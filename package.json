@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --watch --verbose",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -22,15 +22,11 @@
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.15.0",
     "jest": "^26.6.3",
+    "jest-environment-enzyme": "^7.1.2",
+    "jest-enzyme": "^7.1.2",
     "jsdom": "^16.4.0",
     "metro-react-native-babel-preset": "^0.64.0",
     "react-dom": "^16.13.1",
     "react-test-renderer": "16.13.1"
-  },
-  "jest": {
-    "preset": "react-native",
-    "setupFilesAfterEnv": [
-      "<rootDir>tests/setupTests.js"
-    ]
   }
 }

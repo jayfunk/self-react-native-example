@@ -7,6 +7,6 @@ describe('App', () => {
   it('should render', () => {
     const wrapper = mount(<App />);
 
-    expect(wrapper.exists()).toBe(true);
+    expect(wrapper).toExist();
   });
 });
