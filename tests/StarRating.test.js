@@ -30,8 +30,7 @@ describe('Star Rating', () => {
     const mockOnChange = jest.fn();
     const wrapper = shallow(<StarRating onChange={mockOnChange} rating={0} />);
 
-    const buttons = wrapper.find(Button);
-    buttons.at(6).prop('onPress')();
+    wrapper.find(Button).at(6).prop('onPress')();
 
     expect(mockOnChange).toHaveBeenCalledWith(7);
   });
