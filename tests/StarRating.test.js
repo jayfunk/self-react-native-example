@@ -1,34 +1,38 @@
 import React from 'react';
-
-import {Image, Button} from 'react-native';
 import {shallow} from 'enzyme';
+import {Image, Button} from 'react-native';
 
 import StarRating from '../StarRating';
 
 describe('Star Rating', () => {
-  test('should render ten grey stars when the rating is zero', () => {
+  test('should render ten stars when the rating is zero', () => {
     const wrapper = shallow(<StarRating onChange={jest.fn()} rating={0} />);
 
-    const greyStars = wrapper
+    const images = wrapper
       .find(Image)
-      .filterWhere((n) => n.prop('source').testUri.includes('Star_Grey.png'));
+      .filterWhere((node) =>
+        node.prop('source').testUri.includes('Star_Grey.png'),
+      );
 
-    expect(greyStars.length).toEqual(10);
+    expect(images.length).toEqual(10);
   });
 
   test('should render purple stars equal to the rating when given a rating greater than zero', () => {
     const wrapper = shallow(<StarRating onChange={jest.fn()} rating={4} />);
 
-    const purpleStars = wrapper
+    const images = wrapper
       .find(Image)
-      .filterWhere((n) => n.prop('source').testUri.includes('Star_Purple.png'));
+      .filterWhere((node) =>
+        node.prop('source').testUri.includes('Star_Purple.png'),
+      );
 
-    expect(purpleStars.length).toEqual(4);
+    expect(images.length).toEqual(4);
   });
 
   test('should call the onChange callback when a star is pressed', () => {
     const mockOnChange = jest.fn();
-    const wrapper = shallow(<StarRating onChange={mockOnChange} rating={0} />);
+
+    const wrapper = shallow(<StarRating onChange={mockOnChange} rating={4} />);
 
     wrapper.find(Button).at(6).prop('onPress')();
 

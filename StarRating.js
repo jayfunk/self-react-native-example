@@ -7,7 +7,7 @@ import purpleStar from './Assets/Star_Purple.png';
 
 const stars = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-function StarRating(props) {
+export default function StarRating(props) {
   const renderedStars = stars.map((star) => {
     const imageSource = star <= props.rating ? purpleStar : greyStar;
 
@@ -17,6 +17,7 @@ function StarRating(props) {
       </Button>
     );
   });
+
   return <View>{renderedStars}</View>;
 }
 
@@ -24,5 +25,3 @@ StarRating.propTypes = {
   rating: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };
-
-export default StarRating;
